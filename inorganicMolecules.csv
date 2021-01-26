@@ -1,0 +1,240 @@
+Molecule,Structure,smiles string,DipoleMoment
+Hydrogen diatomic,H2,[HH],0
+Deuterium diatomic,D2,[2H][2H],0
+Lithium diatomic,Li2,[Li][Li],0
+Beryllium diatomic,Be2,[Be][Be],0
+Carbon diatomic,C2,[C-]#[C+],0
+Nitrogen diatomic,N2,N#N,0
+Oxygen diatomic,O2,O=O,0
+Fluorine diatomic,F2,FF,0
+Sodium diatomic,Na2,[Na][Na],0
+Magnesium diatomic,Mg2,[Mg]=[Mg],0
+Aluminum diatomic,Al2,[Al]#[Al],0
+Silicon diatomic,Si2,[Si]=[Si],0
+Phosphorus diatomic,P2,P#P,0
+Sulfur diatomic,S2,S=S,0
+Chlorine diatomic,Cl2,ClCl,0
+Bromine diatomic,Br2,BrBr,0
+Iodine diatomic,I2,II,0
+beryllium dihydride,BeH2,[H-].[H-].[Be+2],0
+carbon trimer,C3,[C]=C=[C],0
+Boron dioxide,BO2,[B]([OH2+])[O-],0
+Carbon dioxide,CO2,C(=O)=O,0
+magnesium dihydride,MgH2,[H-].[H-].[Mg+2],0
+silicon dioxide,SiO2,O=[Si]=O,0
+Carbon disulfide,CS2,C(=S)=S,0
+boron trihydride,BH3,B,0
+Methyl radical,CH3,[CH3],0
+(E)-diazine,N2H2,N=N,0
+Diboron dioxide,B2O2,B(=O)B=O,0
+"Borane, trifluoro-",BF3,FB(F)F,0
+aluminum trihydride,AlH3,[AlH3],0
+Aluminum trifluoride,AlF3,F[Al](F)F,0
+Phosphorus tetramer,P4,P12P3P1P23,0
+Sulfur trioxide,SO3,O=S(=O)=O,0
+"Borane, trichloro-",BCl3,ClB(Cl)Cl,0
+Aluminum trichloride,AlCl3,Cl[Al](Cl)Cl,0
+Methane,CH4,C,0
+Carbon tetrafluoride,CF4,C(F)(F)(F)F,0
+Silane,SiH4,[SiH4],0
+Silicon tetrafluoride,SiF4,F[Si](F)(F)F,0
+"Silane, tetrachloro-",SiCl4,[Si](Cl)(Cl)(Cl)Cl,0
+Carbon tetrachloride,CCl4,C(Cl)(Cl)(Cl)Cl,0
+Germane,GeH4,[GeH4],0
+Carbon tetrabromide,CBr4,C(Br)(Br)(Br)Br,0
+Dinitrogen tetroxide,N2O4,[N+](=O)([N+](=O)[O-])[O-],0
+Diboron tetrafluoride,B2F4,B(B(F)F)(F)F,0
+Phosphorus pentafluoride,PF5,FP(F)(F)(F)F,0
+Diboron tetrachloride,B2Cl4,B(B(Cl)Cl)(Cl)Cl,0
+Phosphorus pentachloride,PCl5,P(Cl)(Cl)(Cl)(Cl)Cl,0
+Sulfur Hexafluoride,SF6,FS(F)(F)(F)(F)F,0
+"1,3,5-Triazine",C3H3N3,C1=NC=NC=N1,0
+tetramethylsilane,Si(CH3)4,C[Si](C)(C)C,0
+oxygen diatomic anion,O2-,[O-][O],0
+Oxygen monofluoride,FO,[O]F,0.004
+Carbon sulfide selenide,SCSe,C(=S)=[Se],0.031
+Carbon monoxide,CO,[C-]#[O+],0.112
+Nitric oxide,NO,[N]=O,0.159
+(Z)-Difluorodiazene,N2F2,N(=N\F)\F,0.16
+Nitrous oxide,N2O,[N-]=[N+]=O,0.167
+Arsine,AsH3,[AsH3],0.2
+Nitrogen trifluoride,NF3,N(F)(F)F,0.235
+Difluorine monoxide,F2O,O(F)F,0.297
+Nitrogen dioxide,NO2,N(=O)[O],0.316
+Sulfur dichloride,SCl2,S(Cl)Cl,0.36
+HCP,HCP,C#P,0.39
+formaldoxime,CH2NOH,C=NO,0.44
+Hydrogen iodide,HI,I,0.448
+Trichloromonofluoromethane,CFCl3,C(F)(Cl)(Cl)Cl,0.45
+lithium sodium,NaLi,[Li][Na],0.46
+Difluoromethylene,CF2,[C](F)F,0.46
+Nitryl fluoride,FNO2,[N+](=O)([O-])F,0.466
+Tetraborane(10),B4H10,[B]1B2B1[B]2,0.486
+Selenium monohydride,HSe,[SeH],0.49
+Boron monofluoride,BF,[B]F,0.5
+"Methane, chlorotrifluoro-",CF3Cl,C(F)(F)(F)Cl,0.5
+Chloromethylene,HCCl,[CH]Cl,0.501
+difluorodichloromethane,CF2Cl2,C(F)(F)(Cl)Cl,0.51
+Bromine monochloride,BrCl,ClBr,0.519
+Ozone,O3,[O-][O+]=O,0.53
+Nitryl chloride,ClNO2,C(=NI=O)=O,0.53
+Phosphine,PH3,P,0.58
+hydroxylamine,NH2OH,NO,0.59
+Chlorine trifluoride,ClF3,C(F)(F)(F)I,0.6
+Phosphorus tribromide,PBr3,P(Br)(Br)Br,0.61
+Trimethylamine,N(CH3)3,CN(C)C,0.612
+Hydrogen selenide,H2Se,[SeH2],0.627
+Sulfur tetrafluoride,SF4,FS(F)(F)F,0.632
+Bromotrifluoromethane,CF3Br,C(F)(F)(F)Br,0.639
+isocyanato radical,NCO,C(#N)[O],0.64
+methyl germane,GeH3CH3,C[GeH3],0.643
+Fluoromethylidyne,CF,[C]F,0.645
+"Methane, dibromodifluoro-",CBr2F2,C(F)(F)(Br)Br,0.66
+Carbonyl sulfide,OCS,C(=O)=S,0.712
+methyl silane,CH3SiH3,C[SiH3],0.735
+Iodine monobromide,IBr,BrI,0.737
+dimethylsilane,SiH2(CH3)2,C[SiH2]C,0.75
+Carbonyl selenide,OCSe,C(=O)=[Se],0.754
+Mercapto-d,DS,[1H][S],0.757
+Mercapto radical,HS,[SH],0.758
+Chlorine nitrate,ClONO2,[N+](=O)([O-])OCl,0.772
+Phosphorus trichloride,PCl3,P(Cl)(Cl)Cl,0.78
+Monosulfur monofluoride,SF,F[S],0.794
+hydrogen bromide,HBr,Br,0.827
+Trichlorosilane,SiHCl3,[SiH](Cl)(Cl)Cl,0.86
+trimethyl arsine,As(CH3)3,C[As](=[Se])(C)C,0.86
+H2CPH,CH2PH,[CH2]=[PH],0.869
+Chlorine monofluoride,ClF,FCl,0.88
+Carbonic difluoride,CF2O,C(=O)(F)F,0.95
+Thiohydroxylamine,NH2SH,NS,0.961
+Hydrogen sulfide,H2S,S,0.97
+bromoform,CHBr3,C(Br)(Br)Br,0.99
+Chloroform,CHCl3,C(Cl)(Cl)Cl,1.01
+Phosphorus trifluoride,PF3,FP(F)F,1.03
+Thio-thionyl fluoride,S2F2,FSSF,1.03
+Dimethylamine,CH3NHCH3,CNC,1.03
+trifluoroiodomethane,CF3I,C(F)(F)(F)I,1.048
+sulfur difluoride,SF2,FSF,1.05
+Hydrogen chloride,HCl,Cl,1.08
+Methyl phosphine,CH3PH2,CP(C)C,1.1
+Sulfuryl fluoride,SO2F2,O=S(=O)(F)F,1.12
+dichlorosilane,SiH2Cl2,[SiH2](Cl)Cl,1.13
+Disulfane,H2S2,SS,1.17
+Phosgene,CCl2O,C(=O)(Cl)Cl,1.17
+Silicon trifluoride radical,SiF3,F[Si](F)F,1.2
+Silicon difluoride,SiF2,F[Si]F,1.23
+dimethylphosphine,CH3PHCH3,CPC,1.23
+Monochlorine monoxide,ClO,[O]Cl,1.239
+Boron monohydride,BH,[BH],1.27
+fluorodichloromethane,CHFCl2,C(F)(Cl)Cl,1.29
+Methane selenol,CH3SeH,C[Se],1.291
+monofluorosilane,SiH3F,F[SiH3],1.297
+hydrogen boron sulfide,HBS,B=S,1.298
+Dimethyl ether,CH3OCH3,COC,1.3
+Sulfur monoxide,SO,O=S,1.31
+chlorosilane,SiH3Cl,[SiH3]Cl,1.31
+methyl amine,CH3NH2,CN,1.31
+bromosilane,SiH3Br,[SiH3]Br,1.319
+Hypobromous acid,HOBr,OBr,1.384
+Formic acid,HCOOH,C(=O)O,1.41
+dimethylselenide,CH3SeCH3,C[Se]C,1.41
+Bromine monofluoride,BrF,FBr,1.422
+dibromomethane,CH2Br2,C(Br)Br,1.43
+Perfluoroperoxide,FOOF,O(OF)F,1.44
+Cyano radical,CN,[C-]#N,1.45
+Difluorodisulfane,FSSF,FSSF,1.45
+thionyl chloride,SOCl2,O=S(Cl)Cl,1.45
+Disulfur monoxide,SSO,O=S=S,1.47
+Ammonia,NH3,N,1.47
+diazomethane,CH2NN,C=[N+]=[N-],1.5
+"Methane, bromodifluoro-",CHBrF2,C(F)(F)Br,1.5
+fluorochlorobromomethane,CHFClBr,C(F)(Cl)Br,1.5
+Dimethyl sulfide,CH3SCH3,CSC,1.5
+hypochlorous acid,HOCl,OCl,1.507
+Selenium monofluoride,SeF,F[Se],1.52
+Methanethiol,CH3SH,CS,1.52
+Aluminum monofluoride,AlF,F[Al],1.53
+N-methylmethanimine,CH2NCH3,CN=C,1.53
+Sulfur monoxide,SO,O=S,1.55
+Arsenous trichloride,AsCl3,Cl[As](Cl)Cl,1.59
+diazirine,CH2NN,N1N=C1,1.59
+Disulfur dichloride,ClSSCl,S(SCl)Cl,1.6
+Methylene chloride,CH2Cl2,C(Cl)Cl,1.6
+Bromine monoxide,BrO,[Br]O,1.61
+Isocyanic acid,HNCO,C(=N)=O,1.613
+methyl iodide,CH3I,CI,1.62
+Sulfur dioxide,SO2,O=S=O,1.63
+Thioformaldehyde,H2CS,C=S,1.647
+"Methane, trifluoro-",CHF3,C(F)(F)F,1.65
+Hydroxyl radical,OH,[OH],1.66
+Nitrosyl hydride,HNO,N=O,1.67
+Borane carbonyl,BH3CO,[B]OC,1.698
+hydrogen azide,HN3,N=[N+]=[N-],1.7
+Methyl alcohol,CH3OH,CO,1.7
+silicon monosulfide,SiS,[Si]=S,1.73
+"Methane, bromofluoro-",CH2BrF,C(F)Br,1.739
+Scandium monohydride,ScH,[ScH],1.74
+Hydrazine,N2H4,NN,1.75
+Phosphoryl fluoride,F3PO,O=P(F)(F)F,1.76
+Hydrogen peroxide,H2O2,OO,1.77
+methyl formate,CH3OCHO,COC=O,1.77
+Hydrogen methyl disulfide,CH3SSH,CSS,1.796
+Mononitrogen monosulfide,NS,[N]=S,1.81
+Nitrosyl fluoride,FNO,N(=O)F,1.81
+Sulfuryl chloride,SO2Cl2,O=S(=O)(Cl)Cl,1.81
+methyl bromide,CH3Br,CBr,1.81
+Hydrogen fluoride,HF,F,1.82
+fluorochloromethane,CH2FCl,ClCF,1.82
+Methyl fluoride,CH3F,CF,1.85
+Water-d1,HDO,[2H]O,1.852
+Water,H2O,O,1.855
+Deuterium oxide,D2O,[2H]O[2H],1.855
+Nitrosyl chloride,ClNO,N(=O)Cl,1.866
+Methyl chloride,CH3Cl,CCl,1.87
+Phosphorus monoxide,PO,O=[P],1.88
+diiminomethane,HNCNH,N=C=N,1.9
+Thiazyl fluoride,FSN,N#SF,1.902
+difluoramine,NHF2,N(F)F,1.92
+"Methane, difluoro-",CH2F2,C(F)F,1.97
+carbon monosulfide,CS,[C-]#[S+],1.98
+peroxy nitric acid,HOONO2,OO[N+]([O-])=O,1.987
+Ammonia Dimer,NH3NH3,N.N,1.99
+Methanimine,CH2NH,C=N,2
+Thiohydroxylamine,NH2SH,C=NO,2.005
+Selenium monoxide,SeO,O=[Se],2.01
+Methyl nitrite,CH3ONO,CON=O,2.05
+"1,3,5-Trioxane",C3H6O3,O1COCOC1,2.08
+formyl fluoride,HFCO,C(=O)F,2.081
+Dinitrogen trioxide,N2O3,N(=O)[N+](=O)[O-],2.122
+pentaborane9,B5H9,[BH3-]BBB[BH3-],2.13
+Cyanogen fluoride,FCN,C(#N)F,2.17
+Nitric acid,HNO3,[N+](=O)(O)[O-],2.17
+Hypofluorous acid,HOF,OF,2.23
+monofluoroamine,NH2F,NF,2.27
+Formaldehyde,H2CO,C=O,2.33
+Phosphoryl chloride,Cl3PO,O=P(Cl)(Cl)Cl,2.4
+Gallium monofluoride,GaF,F[Ga],2.45
+Dioxirane,CH2O2,C1OO1,2.48
+Arsenic trifluoride,AsF3,F[As](F)F,2.59
+Germanium difluoride,GeF2,F[Ge]F,2.61
+Selenium dioxide,SeO2,O=[Se]=O,2.62
+Sodium Potassium,NaK,[Na].[K],2.667
+Sulfuric acid,H2SO4,OS(=O)(=O)O,2.725
+Phosphorus mononitride,PN,N#P,2.751
+chlorocyanogen,ClCN,C(#N)Cl,2.82
+Argon hydride cation,ArH+,[ArH+],2.84
+Hydrogen cyanide,HCN,[NH+]#[C-],2.98
+hydrogen isocyanide,HNC,[NH+]#[C-],3.05
+fulminic acid,HCNO,C#[N+][O-],3.06
+Methyl nitrate,CH3NO3,CO[N+](=O)[O-],3.081
+"Sulfurous acid, dimethyl ester",C2H6O3S,COS(=O)OC,3.09
+Silicon monoxide,SiO,O=[Si],3.098
+Germanium monoxide,GeO,O=[Ge],3.28
+Lithium Potassium,LiK,[Li].[K],3.45
+"Methane, nitro-",CH3NO2,C[N+](=O)[O-],3.46
+formamide,CHONH2,C(=O)N,3.73
+dimethylformamide,C3H7NO,CN(C)C=O,3.82
+Urea,NH2CONH2,C(=O)(N)N,3.83
+methyl isocyanide,CH3NC,CN=C=O,3.85
+Dimethyl sulfoxide,CH3SOCH3,CS(=O)C,3.96
+borane phosphine,BH3PH3,[BH3-][PH3+],4

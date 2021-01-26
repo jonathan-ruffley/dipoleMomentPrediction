@@ -1,0 +1,31 @@
+Molecule,Structure,smiles string,DipoleMoment
+thioformamide,CHSNH2,C(=S)N,4.01
+ethyl cyanide,C2H5CN,CCC#N,4.02
+Butanenitrile,CH3CH2CH2CN,CCCC#N,4.07
+(Z)-2-Butenenitrile,C4H5N,CC=CC#N,4.08
+Pentanenitrile,C5H9N,CCCCC#N,4.12
+beta-Propiolactone,C3H4O2,C1COC1=O,4.18
+Nitrobenzene,C6H5NO2,C1=CC=C(C=C1)[N+](=O)[O-],4.22
+calcium monochloride,CaCl,[Cl-].[Ca+2],4.265
+cyanamide,NH2CN,C(#N)N,4.32
+Dimethyl sulfone,C2H6O2S,CS(=O)(=O)C,4.49
+(E)-2-Butenenitrile,C4H5N,C/C=C/C#N,4.5
+Copper Monoxide,CuO,[Cu]=O,4.5
+phenyl cyanide,C6H5CN,C1=CC=C(C=C1)C#N,4.52
+methanesulfonamide,CH3SO2NH2,CS(=O)(=O)N,4.59
+lithium hydroxide,LiOH,[Li]O,4.755
+borane ammonia,BH3NH3,[BH3-][NH3+],5.216
+Copper monofluoride,CuF,[Cu]F,5.77
+Lithium Hydride,LiH,[LiH],5.88
+lithium fluoride,LiF,[Li]F,6.284
+Titanium dioxide,TiO2,O=[Ti]=O,6.33
+sodium hydride,NaH,[NaH],6.4
+lithium oxide,LiO,[Li][O],6.843
+lithium chloride,LiCl,[Li]Cl,7.085
+Lithium Bromide,LiBr,[Li]Br,7.226
+sodium fluoride,NaF,[Na]F,8.123
+Potassium Fluoride,KF,[K]F,8.558
+Sodium Chloride,NaCl,[Na]Cl,8.971
+Sodium Bromide,NaBr,[Na]Br,9.092
+Potassium Chloride,KCl,[K]Cl,10.239
+Potassium Bromide,KBr,[K]Br,10.603

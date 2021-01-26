@@ -1,0 +1,198 @@
+Molecule,Structure,smiles string,DipoleMoment
+"2,4-Hexadiyne",C6H6,CC#CC#CC,0
+2-Butyne,CH3CCCH3,CC#CC,0
+Carbon suboxide,C3O2,O=C=C=C=O,0
+"2-Butene, (E)-",CH3CHCHCH3,C/C=C/C,0
+"1,2-difluoroethane",C2H4F2,C(CF)F,0
+Bicyclo[2.2.0]hex-1(4)-ene,C6H8,C1CC2=C1CC2,0
+Tetrachloroethylene,C2Cl4,C(=C(Cl)Cl)(Cl)Cl,0
+Tetrafluoroethylene,C2F4,C(=C(F)F)(F)F,0
+cubane,C8H8,C12C3C4C1C5C2C3C45,0
+Pyrazine,C4H4N2,C1=CN=CC=N1,0
+Diacetylene,C4H2,C#CC#C,0
+Cyanogen,C2N2,C(#N)C#N,0
+allene,CH2CCH2,C=C=C,0
+"Propane, 2,2-dimethyl-",C5H12,CC(C)(C)C,0
+Benzene,C6H6,C1=CC=CC=C1,0
+Ethane,C2H6,CC,0
+Ethylene,C2H4,C=C,0
+Acetylene,C2H2,C#C,0
+Cyclopropane,C3H6,C1CC1,0
+hexafluoroethane,C2F6,C(C(F)(F)F)(F)(F)F,0
+Butane,CH3CH2CH2CH3,CCCC,0
+Quadricyclane,C7H8,C1C2C3C2C4C1C34,0.02
+Propane,C3H8,CCC,0.08
+Norbornane,C7H12,C1CC2CCC1C2,0.09
+"Butane, 2-methyl-",C5H12,CCC(C)C,0.13
+Isobutane,CH3CH(CH3)CH3,CC(C)C,0.13
+Cyclobutene,C4H6,C1CC=C1,0.13
+methylcyclopropane,C4H8,CC1CC1,0.14
+"Cyclopropane, 1,1-dimethyl-",C5H10,CC1(CC1)C,0.14
+Cyclopentene,C5H8,C1CC=CC1,0.19
+Bicyclo[3.1.0]hexane,C6H10,C1CC2CC2C1,0.19
+1-Buten-3-yne,C2H3CCH,C=CC#C,0.22
+bromoacetylene,HCCBr,C#CBr,0.23
+"1,3-Butadiene, 2-methyl-",C5H8,CC(=C)[13CH]=C,0.25
+"2-Butene, (Z)-",CH3CHCHCH3,C/C=C\C,0.26
+Bicyclo[2.1.0]pentane,C5H8,C1CC2C1C2,0.26
+"2-Pentene, (Z)-",C5H10,CC/C=C\C,0.28
+Bicyclo[3.1.0]hex-2-ene,C6H8,C1C=CC2C1C2,0.29
+cyclohexene,C6H10,C1CCC=CC1,0.33
+toluene,C6H5CH3,C1CCC=CC1,0.33
+1-Butene,CH2CHCH2CH3,CCC=C,0.36
+Propene,CH2CHCH3,CC=C,0.36
+1-pentene,CH2CHCH2CH2CH3,CCCC=C,0.39
+selenophene,C4H4Se,C1=C[Se]C=C1,0.4
+"1,2-Butadiene",CH2CCHCH3,CC=C=C,0.4
+Bicyclo[2.1.0]pent-2-ene,C5H6,C1C2C1C=C2,0.4
+Methylenecyclopropane,C4H6,C=C1CC1,0.4
+"1,3-Cyclopentadiene",C5H6,C1C=CC=C1,0.42
+Fulvene,C6H6,C=C1C=CC=C1,0.42
+"1,3-Cyclohexadiene",C6H8,C1CC=CC=C1,0.44
+Chloroacetylene,HCCCl,C#CCl,0.44
+cyclopropene,C3H4,C1C=C1,0.45
+"1,3-Pentadiene, (Z)-",C5H8,C/C=C\C=C,0.5
+Ethenylcyclopropane,C5H8,C=CC1CC1,0.5
+"1-Propene, 2-methyl-",CH2C(CH3)CH3,CC(=C)C,0.5
+"1-Buten-3-yne, 2-methyl-",C5H6,CC(=C)C#C,0.51
+"Cyclobutane, methylene-",C5H8,C=C1CCC1,0.51
+pentafluorochloroethane,CF3CF2Cl,C(C(F)(F)Cl)(F)(F)F,0.52
+"1,2-Butadiene, 3-methyl-",C5H8,CC(=C=C)C,0.55
+Thiophene,C4H4S,C1=CSC=C1,0.55
+"1,3-Pentadiene, (E)-",C5H8,C/C=C/C=C,0.58
+Ethylbenzene,C6H5CH2CH3,CCC1=CC=CC=C1,0.59
+phenylacetylene,C6H5CCH,C#CC1=CC=CC=C1,0.66
+Furan,C4H4O,C1=COC=C1,0.66
+"3-Penten-1-yne, (E)-",C5H6,C/C=C/C#C,0.66
+Bicyclo[1.1.0]butane,C4H6,C1C2C1C2,0.68
+Fluoroacetylene,HCCF,C#CF,0.73
+propyne,CH3CCH,CC#C,0.78
+1-Butyne,CHCCH2CH3,CCC#C,0.78
+Vinyl ether,CH2CHOCHCH2,C=COC=C,0.78
+Azulene,C10H8,C1=CC=C2C=CC=C2C=C1,0.8
+Piperidine,C5H11N,C1CCNCC1,0.82
+1-Hexyne,C6H10,CCCCC#C,0.83
+1-Methylcyclopropene,C4H6,CC1=CC1,0.84
+Acetaldoxime,CH3CHNOH,C/C=N\O,0.85
+1-pentyne,C5H8,CCCC#C,0.85
+Benzvalene,C6H6,C1=CC2C3C1C23,0.88
+Cyclopropylacetylene,C5H6,C#CC1CC1,0.89
+Ethenethiol,CH2CHSH,C=CS,0.91
+"1,1,2,2-tetrafluoroethane",CHF2CHF2,C(C(F)F)(F)F,0.99
+"Ethane, 1,2-dibromo-",CH2BrCH2Br,C(CBr)Br,1.04
+Glycine,H2NCH2COOH,C(C(=O)O)N,1.09
+Ethoxy ethane,C4H10O,CCOCC,1.15
+1-Propanamine,NH2CH2CH2CH3,CCCN,1.17
+"Ethane, methoxy-",CH3OC2H5,CCOC,1.17
+2-Propanamine,CH3CH(NH2)CH3,CCCN(CCC)C(C)C,1.19
+Cyclopropylamine,C3H7N,C1CC1N,1.19
+Divinyl sulfide,CH2CHSCHCH2,C=CSC=C,1.2
+di-n-propyl ether,C3H7OC3H7,CCOCCC,1.21
+Ethylamine,CH3CH2NH2,CCN,1.22
+phenol,C6H5OH,C1=CC=C(C=C1)O,1.22
+Anisole,C6H5OCH3,COC1=CC=CC=C1,1.26
+"Furan, 2,5-dihydro-",C4H6O,C1C=CCO1,1.32
+"Acetonitrile, trifluoro-",CF3CN,C(#N)C(F)(F)F,1.33
+"Ethene, 1,1-dichloro-",CH2CCl2,C=C(Cl)Cl,1.34
+"Ethene, 1,1-difluoro-",CH2CF2,C=C(F)F,1.38
+Trifluoroethylene,C2HF3,C(=C(F)F)F,1.4
+Ketene,CH2CO,C=C=O,1.42
+vinyl bromide,C2H3Br,C=CBr,1.42
+"Ethene, fluoro-",CH2CHF,C=CF,1.43
+Ethenimine,H2CCNH,C=C=N,1.44
+Ethanol,CH3CH2OH,CCO,1.44
+"Ethene, chloro-",CH2CHCl,C=CCl,1.45
+"1,1,1,2-tetrafluorochloroethane",CF3CHFCl,C(C(F)(F)F)(F)Cl,1.47
+"1,1,2-trichloroethane",CH2ClCHCl2,C(C(Cl)Cl)Cl,1.5
+Oxazole,C3H3NO,C1=COC=N1,1.5
+ethanethiol,CH3CH2SH,CCS,1.52
+aniline,C6H5NH2,C1=CC=C(C=C1)N,1.53
+1-Propanol,C3H7OH,CCCO,1.55
+Diethyl sulfide,C2H5SC2H5,CCSCC,1.56
+pentafluoroethane,CF3CHF2,C(C(F)(F)F)(F)F,1.56
+metadifluorobenzene,C6H4F2,C1=CC(=CC(=C1)F)F,1.58
+Isopropyl alcohol,CH3CHOHCH3,CC(C)O,1.58
+2-Propen-1-ol,C3H6O,C=CCO,1.6
+Fluorobenzene,C6H5F,C1=CC=C(C=C1)F,1.6
+"Furan, tetrahydro-",C4H8O,C1CCOC1,1.63
+"1-Propanol, 2-methyl-",C4H10O,CC(C)CO,1.64
+1-Butanol,C4H10O,CCCCO,1.66
+1-chloro-1-propene(Z),C3H5Cl,C/C=C\Cl,1.67
+"Ethane, 1,​1,​2-​trifluoro-",CHF2CH2F,C(C(F)F)F,1.68
+chlorobenzene,C6H5Cl,C1=CC=C(C=C1)Cl,1.69
+bromobenzene,C6H5Br,C1=CC=C(C=C1)Br,1.7
+Acetic acid,CH3COOH,CC(=O)O,1.7
+methyl acetate,CH3COOCH3,CC(=O)OC,1.72
+"Ethanol, 1,1-dimethyl-",C4H10O,CC(C)(C)O,1.74
+"2H-Pyran, tetrahydro-",C5H10O,C1CCOCC1,1.74
+"Thiophene, 2,5-dihydro-",C4H6S,C1C=CCS1,1.75
+Ethyl acetate,C4H8O2,CCOC(=O)C,1.78
+"Ethane, 1,1,1-trichloro-",CH3CCl3,CC(Cl)(Cl)Cl,1.78
+"2H-Thiopyran, tetrahydro-",C5H10S,C1CCSCC1,1.78
+Methylketene,C3H4O,CC=C=O,1.79
+2-Propyn-1-ol,C3H4O,C#CCO,1.81
+Pyrrole,C4H5N,C1=CNC=C1,1.84
+Thietane,C3H6S,C1CSC1,1.85
+Thiirane,C2H4S,C1CS1,1.85
+Ethylene oxide,C2H4O,C1CO1,1.89
+1-Fluoropropane,CH2FCH2CH3,CCF,1.9
+"Ethene, 1,2-dichloro-, (Z)-",CHClCHCl,Cl/C=C\Cl,1.9
+ethanimine,CH3CHNH,CC=N,1.9
+Oxetane,C3H6O,C1COC1,1.94
+"1-Propene, 3-chloro-",C3H5Cl,C=CCCl,1.94
+"Propane, 1-chloro-",CH2ClCH2CH3,CCCCl,1.95
+"Thiirane, methyl-",C3H6S,CC1CS1,1.95
+fluoroethane,C2H5F,CCF,1.96
+1-chloro-1-propene(E),C3H5Cl,C/C=C/Cl,1.97
+Ethyl formate,HCOOC2H5,CCOC=O,1.98
+Ethylenediamine,C2H8N2,C(CN)N,1.99
+Propylene oxide,C3H6O,CC1CO1,2.01
+Ethyl bromide,C2H5Br,CCBr,2.03
+"Butane, 2-chloro-",CH3CHClCH2CH3,CCC(C)Cl,2.04
+Ethyl chloride,CH3CH2Cl,CCCl,2.05
+"Butane, 1-chloro-",CH2ClCH2CH2CH3,CCCCCl,2.05
+"1,1,1,2-tetrafluoroethane",CF3CH2F,C(C(F)(F)F)F,2.06
+"1,3-Dioxane",C4H8O2,C1COCOC1,2.06
+"Ethane, 1,1-dichloro-",CH3CHCl2,C(Cl)Cl,2.06
+"Propane, 2-chloro-2-methyl-",CH3CCl(CH3)CH3,CC(C)(C)Cl,2.13
+"1-Chloro-1,1-Difluoroethane",CH3CF2Cl,CC(F)(F)Cl,2.14
+"Pentane, 1-chloro-",C5H11Cl,CCCCCCl,2.16
+"Propane, 2-chloro-",CH3CHClCH3,CC(C)Cl,2.17
+n-propyl bromide,CH3CH2CH2Br,CCCBr,2.18
+Pyridine,C5H5N,C1=CC=NC=C1,2.19
+i-propyl bromide,CH3CHBrCH3,CC(C)Br,2.21
+1H-Pyrazole,C3H4N2,C1=CNN=C1,2.21
+"Ethane, 1,1-difluoro-",CH3CHF2,CC(F)F,2.26
+"Propane, 2,2-dichloro-",CH3CCl2CH3,CC(C)(Cl)Cl,2.27
+trifluoroacetic acid,CF3COOH,C(=O)(C(F)(F)F)O,2.28
+"Ethane, 1,1,1-trifluoro-",CH3CF3,C(F)(F)F,2.32
+"Ethene, 1,2-difluoro-, (Z)-",C2H2F2,C(=CF)F,2.42
+Propanal,CH3CH2CHO,CCC=O,2.52
+Methyl cyclopropyl ketone,C5H8O,CC(=O)C1CC1,2.62
+"1,2-difluoroethane",C2H4F2,C(CF)F,2.67
+Cyclopropanone,C3H4O,C1CC1=O,2.67
+Acetaldehyde,CH3CHO,CC=O,2.69
+Acetyl Chloride,CH3COCl,CC(=O)Cl,2.72
+Butanal,CHOCH2CH2CH3,CCCC=O,2.72
+hydroxy acetaldehyde,CHOCH2OH,C(C=O)O,2.73
+2-Butanone,CH3COCH2CH3,CC(=O)C,2.78
+Acetone,CH3COCH3,CC(=O)C,2.88
+Isoxazole,C3H3NO,C1=CON=C1,2.9
+Acetyl fluoride,CH3COF,CC(=O)F,2.96
+Methoxyacetonitrile,CH3OCH2CN,COCC#N,2.98
+Cyclobutanone,C4H6O,C1CC(=O)C1,2.99
+cyclohexanone,C6H10O,C1CCC(=O)CC1,3.02
+acetophenone,CH3COC6H5,CC(=O)C1=CC=CC=C1,3.02
+Acrolein,CH2CHCHO,C=CC=O,3.12
+benzaldehyde,C6H5CHO,C1=CC=C(C=C1)C=O,3.14
+Cyclopentanone,C5H8O,C1CCC(=O)C1,3.25
+"Nitric acid, ethyl ester",C2H5NO3,CCO[N+](=O)[O-],3.39
+furfural,C5H4O2,C1=COC(=C1)C=O,3.54
+1H-Imidazole,C3H4N2,C1=CN=CN1.C1=CN=CN1,3.67
+Cyanoacetylene,HCCCN,C#CC#N,3.72
+2-Butenal,CHOCHCHCH3,CC=CC=O,3.72
+Malononitrile,C3H2N2,C(C#N)C#N,3.73
+Acetamide,CH3CONH2,CC(=O)N,3.76
+acrylonitrile,C3H3N,C=CC#N,3.87
+Acetonitrile,CH3CN,CC#N,3.92
+"Propanenitrile, 2,2-dimethyl-",C5H9N,CC(C)(C)C#N,3.95
