@@ -18,18 +18,18 @@ import pickle
 
 #function to provide an evaluation of model performance. The accuracy won't work properly because there are a decent number of molecules with a dipole moment of zero, and the RF is getting some of those right. One solution might be to shift all dipole moments by a very small amount, but that might cause things to blow up. How else can I get an accuracy from this?
 def evaluate(model, testFeatures, testLabels):
-    print(testLabels[1])
+    #print(testLabels[1]) #this does not work
     tempLabels = testLabels[1:]
     predictions = model.predict(testFeatures)
     errors = abs(predictions - testLabels)
-    print(errors[1])
+    #print(errors[1]) not working, need to fix this bug
     #print(errors)
     #print(len(tempLabels[1]))
     mape = np.mean(errors[1]/tempLabels[1]) #* 100
     accuracy = 100 - mape
     print('\nModel Performance')
     print('\nAverage Error: {:0.4f} D\nAccuracy: {:1.2f}%\n'.format(np.mean(errors), accuracy))
-    return accuracy
+    return accuracy #the accuracy is wrong so that will need to be fixed
 
 #read the data files, verify types, drop the structure column as it will not be used in the analysis here.
 df = pd.read_csv('./organicMolecules.csv')
