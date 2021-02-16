@@ -22,9 +22,7 @@ def evaluate(model, testFeatures, testLabels):
     errors = abs(predictions - testLabels)
     print(testLabels)
     mape = np.mean(errors[1]/testLabels[1]) #* 100
-    print('Trump')
     print(errors)
-    print('Trump')
     accuracy = 100 - mape
     print('\nModel Performance')
     print('\nAverage Error: {:0.4f} D\nAccuracy: {:1.2f}%\n'.format(np.mean(errors), accuracy))
@@ -83,6 +81,7 @@ supplementalFingerprintDF = pd.DataFrame(supplementalFingerprintArray)
 finalDF = pd.concat([dfFingerprints, df['DipoleMoment']], axis=1)
 finalSupplement = pd.concat([supplementalFingerprintDF, dfSupplement['DipoleMoment']], axis=1)
 
+
 #the data frame is ready, now it's time for the random forest.
 #split data into train and test
 
@@ -120,14 +119,15 @@ finalSupplement = pd.concat([supplementalFingerprintDF, dfSupplement['DipoleMome
 # print('Model score is: {0}\n'.format(meanScore))
 
 #determine the base model performance
-model = RandomForestRegressor(n_estimators=1600, min_samples_split=5, min_samples_leaf=2, max_features='auto', max_depth=None, bootstrap=True)
-xTrain, xTest, yTrain, yTest = train_test_split(finalDF.drop(['DipoleMoment'], axis=1), finalDF['DipoleMoment'],test_size=0.2)
-xTrain = np.concatenate((xTrain,finalSupplement.drop('DipoleMoment',axis=1).values))
-#xTest = data[testIndex]
-yTrain = np.concatenate((yTrain,finalSupplement.DipoleMoment.values))
-#yTest = target[testIndex]
-fittage = model.fit(xTrain, yTrain)
-modelPerformance = evaluate(model, xTest, yTest)
+# model = RandomForestRegressor(n_estimators=1600, min_samples_split=5, min_samples_leaf=2, max_features='auto', max_depth=None, bootstrap=True)
+# xTrain, xTest, yTrain, yTest = train_test_split(finalDF.drop(['DipoleMoment'], axis=1), finalDF['DipoleMoment'],test_size=0.2)
+# xTrain = np.concatenate((xTrain,finalSupplement.drop('DipoleMoment',axis=1).values))
+# #xTest = data[testIndex]
+# yTrain = np.concatenate((yTrain,finalSupplement.DipoleMoment.values))
+# #yTest = target[testIndex]
+# fittage = model.fit(xTrain, yTrain)
+# modelPerformance = evaluate(model, xTest, yTest)
+
 
 #optimize the hyperparameters. The most important hyperparameters are the number of estimators, the maximum number of features per node, the max depth of each tree, minimum date points in a node before splitting the node, minimum number of data points allowed in a leaf node, bootstrap
 
