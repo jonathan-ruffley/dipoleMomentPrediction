@@ -18,11 +18,14 @@ import pickle
 
 #function to provide an evaluation of model performance. The accuracy won't work properly because there are a decent number of molecules with a dipole moment of zero, and the RF is getting some of those right. One solution might be to shift all dipole moments by a very small amount, but that might cause things to blow up. How else can I get an accuracy from this?
 def evaluate(model, testFeatures, testLabels):
+    print(testLabels[1])
+    tempLabels = testLabels[1:]
     predictions = model.predict(testFeatures)
     errors = abs(predictions - testLabels)
-    print(testLabels)
-    mape = np.mean(errors[1]/testLabels[1]) #* 100
-    print(errors)
+    print(errors[1])
+    #print(errors)
+    #print(len(tempLabels[1]))
+    mape = np.mean(errors[1]/tempLabels[1]) #* 100
     accuracy = 100 - mape
     print('\nModel Performance')
     print('\nAverage Error: {:0.4f} D\nAccuracy: {:1.2f}%\n'.format(np.mean(errors), accuracy))
@@ -86,47 +89,47 @@ finalSupplement = pd.concat([supplementalFingerprintDF, dfSupplement['DipoleMome
 #split data into train and test
 
 
-#model = RandomForestRegressor(n_estimators=1600, min_samples_split=5, min_samples_leaf=2, max_features='auto', max_depth=None, bootstrap=True)
-# #output = model.fit(xTrain,yTrain)
-# # score = model.score(xTest,yTest)
-# # print('Model Settings:\n{0}\n'.format(output))
-# # print('R2: {0}'.format(score))
+model = RandomForestRegressor(n_estimators=1600, min_samples_split=5, min_samples_leaf=2, max_features='auto', max_depth=None, bootstrap=True)
+#output = model.fit(xTrain,yTrain)
+# score = model.score(xTest,yTest)
+# print('Model Settings:\n{0}\n'.format(output))
+# print('R2: {0}'.format(score))
 
-# folds = KFold(n_splits=5, shuffle=True)
-# scores = []
-# data = finalDF.drop(['DipoleMoment'], axis=1).values
-# target = finalDF.DipoleMoment.values
-# print('\nScore:\n')
-# for trainIndex, testIndex in folds.split(data):
-#     plt.figure()
-#     #print(trainIndex, testIndex)
-#     xTrain = np.concatenate((data[trainIndex],finalSupplement.drop('DipoleMoment',axis=1).values))
-#     xTest = data[testIndex]
-#     yTrain = np.concatenate((target[trainIndex],finalSupplement.DipoleMoment.values))
-#     yTest = target[testIndex]
-#     #print('\n\n{0}\n\n{1}\n\n{2}\n\n{3}'.format(xTrain,xTest,yTrain,yTest))
-#     fittage = model.fit(xTrain, yTrain)
-#     SCORE = model.score(xTest, yTest) 
-#     print(SCORE)
-#     yHat = model.predict(xTest)
-#     residualPlot = sb.residplot(yHat, yTest)
-#     plt.xlabel('Dipole Moment (D)')
-#     plt.ylabel('Error (D)')
-#     plt.draw()
-#     scores.append(SCORE)
-# plt.show()
-# meanScore = s.mean(scores)
-# print('Model score is: {0}\n'.format(meanScore))
+folds = KFold(n_splits=5, shuffle=True)
+scores = []
+data = finalDF.drop(['DipoleMoment'], axis=1).values
+target = finalDF.DipoleMoment.values
+print('\nScore:\n')
+for trainIndex, testIndex in folds.split(data):
+    plt.figure()
+    #print(trainIndex, testIndex)
+    xTrain = np.concatenate((data[trainIndex],finalSupplement.drop('DipoleMoment',axis=1).values))
+    xTest = data[testIndex]
+    yTrain = np.concatenate((target[trainIndex],finalSupplement.DipoleMoment.values))
+    yTest = target[testIndex]
+    #print('\n\n{0}\n\n{1}\n\n{2}\n\n{3}'.format(xTrain,xTest,yTrain,yTest))
+    fittage = model.fit(xTrain, yTrain)
+    SCORE = model.score(xTest, yTest) 
+    print(SCORE)
+    yHat = model.predict(xTest)
+    residualPlot = sb.residplot(yHat, yTest)
+    plt.xlabel('Dipole Moment (D)')
+    plt.ylabel('Error (D)')
+    plt.draw()
+    scores.append(SCORE)
+plt.show()
+meanScore = s.mean(scores)
+print('Model score is: {0}\n'.format(meanScore))
 
 #determine the base model performance
-# model = RandomForestRegressor(n_estimators=1600, min_samples_split=5, min_samples_leaf=2, max_features='auto', max_depth=None, bootstrap=True)
-# xTrain, xTest, yTrain, yTest = train_test_split(finalDF.drop(['DipoleMoment'], axis=1), finalDF['DipoleMoment'],test_size=0.2)
-# xTrain = np.concatenate((xTrain,finalSupplement.drop('DipoleMoment',axis=1).values))
-# #xTest = data[testIndex]
-# yTrain = np.concatenate((yTrain,finalSupplement.DipoleMoment.values))
-# #yTest = target[testIndex]
-# fittage = model.fit(xTrain, yTrain)
-# modelPerformance = evaluate(model, xTest, yTest)
+model = RandomForestRegressor(n_estimators=1600, min_samples_split=5, min_samples_leaf=2, max_features='auto', max_depth=None, bootstrap=True)
+xTrain, xTest, yTrain, yTest = train_test_split(finalDF.drop(['DipoleMoment'], axis=1), finalDF['DipoleMoment'],test_size=0.2)
+xTrain = np.concatenate((xTrain,finalSupplement.drop('DipoleMoment',axis=1).values))
+#xTest = data[testIndex]
+yTrain = np.concatenate((yTrain,finalSupplement.DipoleMoment.values))
+#yTest = target[testIndex]
+fittage = model.fit(xTrain, yTrain)
+modelPerformance = evaluate(model, xTest, yTest)
 
 
 #optimize the hyperparameters. The most important hyperparameters are the number of estimators, the maximum number of features per node, the max depth of each tree, minimum date points in a node before splitting the node, minimum number of data points allowed in a leaf node, bootstrap
