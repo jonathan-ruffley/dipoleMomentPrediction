@@ -1,7 +1,6 @@
 #run with miniconda (necessary for rdkit).
 #code will take a csv of dipole moments and build a random forest algorithm to predict dipole moments
 
-#predictions are not great: try finding more data.
 
 import pandas as pd
 import rdkit.Chem as chem
@@ -16,20 +15,16 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import RandomizedSearchCV
 import pickle
 
-#function to provide an evaluation of model performance. The accuracy won't work properly because there are a decent number of molecules with a dipole moment of zero, and the RF is getting some of those right. One solution might be to shift all dipole moments by a very small amount, but that might cause things to blow up. How else can I get an accuracy from this?
+#function to provide an evaluation of model performance. The accuracy won't work properly because there are a decent number of molecules with a dipole moment of zero, and the RF is getting some of those right. One solution might be to shift all dipole moments by a very small amount, but that might cause things to blow up.
 def evaluate(model, testFeatures, testLabels):
     #print(testLabels[1]) #this does not work
-    tempLabels = testLabels[1:]
     predictions = model.predict(testFeatures)
     errors = abs(predictions - testLabels)
-    #print(errors[1]) not working, need to fix this bug
-    #print(errors)
-    #print(len(tempLabels[1]))
-    mape = np.mean(errors[1]/tempLabels[1]) #* 100
+    mape = np.mean(errors[1]/testLables[1]) #* 100
     accuracy = 100 - mape
     print('\nModel Performance')
     print('\nAverage Error: {:0.4f} D\nAccuracy: {:1.2f}%\n'.format(np.mean(errors), accuracy))
-    return accuracy #the accuracy is wrong so that will need to be fixed
+    return accuracy #the accuracy is wrong. See comment above the function
 
 #read the data files, verify types, drop the structure column as it will not be used in the analysis here.
 df = pd.read_csv('./organicMolecules.csv')
@@ -59,7 +54,7 @@ supplementalSmiles = dfSupplement['smiles string'].to_numpy('object')
 fingerprintList= []
 for smile in smilesStringArray:
     mol = chem.MolFromSmiles(smile)
-    fingerprint = chem.AllChem.GetMorganFingerprintAsBitVect(mol, 2, useChirality=True, useBondTypes=True, nBits=1024)
+    fingerprint = chem.AllChem.GetMorganFingerprintAsBitVect(mol, 2, useChirality=True, useBondTypes=True, useFeatures=True, nBits=1024)
     fingerprint = np.array(list(fingerprint.ToBitString()))
     #print('{0}'.format(fingerprint))
     fingerprintList.append(fingerprint)
@@ -128,6 +123,7 @@ xTrain = np.concatenate((xTrain,finalSupplement.drop('DipoleMoment',axis=1).valu
 #xTest = data[testIndex]
 yTrain = np.concatenate((yTrain,finalSupplement.DipoleMoment.values))
 #yTest = target[testIndex]
+print('y test:\n{0}'.format(yTest))
 fittage = model.fit(xTrain, yTrain)
 modelPerformance = evaluate(model, xTest, yTest)
 
