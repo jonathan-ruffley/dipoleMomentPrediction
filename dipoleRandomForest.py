@@ -15,16 +15,13 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import RandomizedSearchCV
 import pickle
 
-#function to provide an evaluation of model performance. The accuracy won't work properly because there are a decent number of molecules with a dipole moment of zero, and the RF is getting some of those right. One solution might be to shift all dipole moments by a very small amount, but that might cause things to blow up.
+#function to provide an evaluation of model performance.
 def evaluate(model, testFeatures, testLabels):
     #print(testLabels[1]) #this does not work
     predictions = model.predict(testFeatures)
     errors = abs(predictions - testLabels)
-    mape = np.mean(errors[1]/testLables[1]) #* 100
-    accuracy = 100 - mape
     print('\nModel Performance')
-    print('\nAverage Error: {:0.4f} D\nAccuracy: {:1.2f}%\n'.format(np.mean(errors), accuracy))
-    return accuracy #the accuracy is wrong. See comment above the function
+    print('\nAverage Error: {:0.4f} D\n'.format(np.mean(errors)))
 
 #read the data files, verify types, drop the structure column as it will not be used in the analysis here.
 df = pd.read_csv('./organicMolecules.csv')
@@ -33,16 +30,11 @@ df = pd.read_csv('./organicMolecules.csv')
 dfInorganic = pd.read_csv('./inorganicMolecules.csv')
 dfHigh = pd.read_csv('./highDipoleMoment.csv')
 dfOther = pd.read_csv('./otherMolecules.csv')
+
 #combine these extra data frames. They will be only used for training, not testing. There isn't enough data on inorganic molecules to make good predictions of inorganics, and there isn't enough data with dipole moments greater than 4 to make good predictions in that domain.
-#dfSupplement = dfInorganic
 dfSupplement = pd.concat([dfInorganic, dfHigh, dfOther], ignore_index=True)
 dfSupplement.drop(['Structure','Molecule'], axis=1, inplace=True)
-
-#print('\n{0}\n'.format(df.dtypes))
-#print('\n{0}\n'.format(df.columns))
 df.drop('Structure', axis=1, inplace=True)
-
-#print('\n{0}\n'.format(df.describe))
 
 #convert smiles strings into 1024 bit morgan (circular) fingerprint
 #first convert smiles string column into numpy array
@@ -75,15 +67,12 @@ supplementalFingerprintArray = supplementalFingerprintArray.astype(np.float).ast
 #convert back to part of the data frame, adding 1024 columns, then combine the dataframes, in the order morgan fingerprints, dipole moment. This removes the smiles string column; it is no longer needed
 dfFingerprints = pd.DataFrame(fingerprintArray)
 supplementalFingerprintDF = pd.DataFrame(supplementalFingerprintArray)
-
 finalDF = pd.concat([dfFingerprints, df['DipoleMoment']], axis=1)
 finalSupplement = pd.concat([supplementalFingerprintDF, dfSupplement['DipoleMoment']], axis=1)
 
 
 #the data frame is ready, now it's time for the random forest.
 #split data into train and test
-
-
 model = RandomForestRegressor(n_estimators=1600, min_samples_split=5, min_samples_leaf=2, max_features='auto', max_depth=None, bootstrap=True)
 #output = model.fit(xTrain,yTrain)
 # score = model.score(xTest,yTest)
@@ -125,7 +114,7 @@ yTrain = np.concatenate((yTrain,finalSupplement.DipoleMoment.values))
 #yTest = target[testIndex]
 print('y test:\n{0}'.format(yTest))
 fittage = model.fit(xTrain, yTrain)
-modelPerformance = evaluate(model, xTest, yTest)
+evaluate(model, xTest, yTest)
 
 
 #optimize the hyperparameters. The most important hyperparameters are the number of estimators, the maximum number of features per node, the max depth of each tree, minimum date points in a node before splitting the node, minimum number of data points allowed in a leaf node, bootstrap
@@ -187,7 +176,7 @@ print('Model score is: {0}\n'.format(meanScore))
 modelSettings = model.fit(data,target)
 #print(modelSettings)
 #Save the model with pickle or json? Add deployment later
-filename = 'dipoleMomentModel.sav'
+#filename = 'dipoleMomentModel.sav'
 
 #allow input of new predictions
 prediction = True
