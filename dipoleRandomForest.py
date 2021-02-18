@@ -12,6 +12,8 @@ from sklearn.model_selection import KFold
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import RandomizedSearchCV
 import pickle
+import scipy as sci
+import statistics as s
 
 #function to provide an evaluation of model performance.
 def evaluate(model, testFeatures, testLabels):
@@ -68,6 +70,21 @@ supplementalFingerprintDF = pd.DataFrame(supplementalFingerprintArray)
 finalDF = pd.concat([dfFingerprints, df['DipoleMoment']], axis=1)
 finalSupplement = pd.concat([supplementalFingerprintDF, dfSupplement['DipoleMoment']], axis=1)
 
+#summary statistics on the dipole moments
+dipoleMoments = df['DipoleMoment'].to_numpy('object')
+mean = s.mean(dipoleMoments)
+stddev = s.stdev(dipoleMoments)
+skewness = sci.stats.skew(dipoleMoments)
+kurtosis = sci.stats.kurtosis(dipoleMoments)
+print('Mean: {0:.3f} D'.format(mean))
+print('Standard Deviation: {0:.3f} D'.format(stddev))
+print('Skew: {0:.3f}'.format(skewness))
+print('Kurtosis {0:.3f}'.format(kurtosis))
+sb.distplot(df['DipoleMoment'], 16, kde=False)
+plt.xlabel('Dipole Moment (D)')
+plt.ylabel('Instances')
+plt.savefig('DipoleMomentHistogram.png')
+plt.show()
 
 #the data frame is ready, now it's time for the random forest.
 #split data into train and test
@@ -110,7 +127,7 @@ xTrain = np.concatenate((xTrain,finalSupplement.drop('DipoleMoment',axis=1).valu
 #xTest = data[testIndex]
 yTrain = np.concatenate((yTrain,finalSupplement.DipoleMoment.values))
 #yTest = target[testIndex]
-print('y test:\n{0}'.format(yTest))
+#print('y test:\n{0}'.format(yTest))
 fittage = model.fit(xTrain, yTrain)
 evaluate(model, xTest, yTest)
 
