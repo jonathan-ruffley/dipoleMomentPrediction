@@ -1,7 +1,5 @@
 #run with miniconda (necessary for rdkit).
 #code will take a csv of dipole moments and build a random forest algorithm to predict dipole moments
-
-
 import pandas as pd
 import rdkit.Chem as chem
 from rdkit.Chem import AllChem
@@ -46,7 +44,7 @@ supplementalSmiles = dfSupplement['smiles string'].to_numpy('object')
 fingerprintList= []
 for smile in smilesStringArray:
     mol = chem.MolFromSmiles(smile)
-    fingerprint = chem.AllChem.GetMorganFingerprintAsBitVect(mol, 2, useChirality=True, useBondTypes=True, useFeatures=True, nBits=1024)
+    fingerprint = chem.AllChem.GetMorganFingerprintAsBitVect(mol, 2, useChirality=True, useBondTypes=True, nBits=1024)
     fingerprint = np.array(list(fingerprint.ToBitString()))
     #print('{0}'.format(fingerprint))
     fingerprintList.append(fingerprint)
