@@ -7,21 +7,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sb
 import statistics as s
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import KFold
+from sklearn.model_selection import train_test_split, KFold
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import RandomizedSearchCV
-import pickle
+from sklearn import metrics
 import scipy as sci
-import statistics as s
 
-#function to provide an evaluation of model performance.
-def evaluate(model, testFeatures, testLabels):
-    #print(testLabels[1]) #this does not work
-    predictions = model.predict(testFeatures)
-    errors = abs(predictions - testLabels)
-    print('\nModel Performance')
-    print('\nAverage Error: {:0.4f} D\n'.format(np.mean(errors)))
 
 #read the data files, verify types, drop the structure column as it will not be used in the analysis here.
 df = pd.read_csv('./organicMolecules.csv')
@@ -86,22 +77,20 @@ plt.ylabel('Instances')
 plt.savefig('DipoleMomentHistogram.png')
 plt.show()
 
+
 #the data frame is ready, now it's time for the random forest.
 #split data into train and test
 model = RandomForestRegressor(n_estimators=1600, min_samples_split=5, min_samples_leaf=2, max_features='auto', max_depth=None, bootstrap=True)
-#output = model.fit(xTrain,yTrain)
-# score = model.score(xTest,yTest)
-# print('Model Settings:\n{0}\n'.format(output))
-# print('R2: {0}'.format(score))
-
 folds = KFold(n_splits=5, shuffle=True)
 scores = []
+mae = []
+mse = []
+mape = []
 data = finalDF.drop(['DipoleMoment'], axis=1).values
 target = finalDF.DipoleMoment.values
 print('\nScore:\n')
 for trainIndex, testIndex in folds.split(data):
     plt.figure()
-    #print(trainIndex, testIndex)
     xTrain = np.concatenate((data[trainIndex],finalSupplement.drop('DipoleMoment',axis=1).values))
     xTest = data[testIndex]
     yTrain = np.concatenate((target[trainIndex],finalSupplement.DipoleMoment.values))
@@ -109,27 +98,24 @@ for trainIndex, testIndex in folds.split(data):
     #print('\n\n{0}\n\n{1}\n\n{2}\n\n{3}'.format(xTrain,xTest,yTrain,yTest))
     fittage = model.fit(xTrain, yTrain)
     SCORE = model.score(xTest, yTest) 
-    print(SCORE)
+    print('{0:.3f}'.format(SCORE))
     yHat = model.predict(xTest)
-    residualPlot = sb.residplot(yHat, yTest)
+    mae.append(metrics.mean_absolute_error(yTest, yHat))
+    mse.append(metrics.mean_squared_error(yTest, yHat))
+    #mape.append(metrics.mean_absolute_percentage_error(yTest, yHat))
+    plt.scatter(yTest, yHat-yTest)
+    plt.plot([0,4],[0,0], 'k--')
+    #residualPlot = sb.residplot(yTest, yHat)
     plt.xlabel('Dipole Moment (D)')
     plt.ylabel('Error (D)')
     plt.draw()
     scores.append(SCORE)
 plt.show()
 meanScore = s.mean(scores)
-print('Model score is: {0}\n'.format(meanScore))
-
-#determine the base model performance
-model = RandomForestRegressor(n_estimators=1600, min_samples_split=5, min_samples_leaf=2, max_features='auto', max_depth=None, bootstrap=True)
-xTrain, xTest, yTrain, yTest = train_test_split(finalDF.drop(['DipoleMoment'], axis=1), finalDF['DipoleMoment'],test_size=0.2)
-xTrain = np.concatenate((xTrain,finalSupplement.drop('DipoleMoment',axis=1).values))
-#xTest = data[testIndex]
-yTrain = np.concatenate((yTrain,finalSupplement.DipoleMoment.values))
-#yTest = target[testIndex]
-#print('y test:\n{0}'.format(yTest))
-fittage = model.fit(xTrain, yTrain)
-evaluate(model, xTest, yTest)
+print('Model score is: {0:.3f}\n'.format(meanScore))
+print('MAE: {0:.3f} D'.format(s.mean(mae)))
+print('MSE: {0:.3f}'.format(s.mean(mse)))
+#print('MAPE: {0:.3f}'.format(s.mean(mape)))
 
 
 #optimize the hyperparameters. The most important hyperparameters are the number of estimators, the maximum number of features per node, the max depth of each tree, minimum date points in a node before splitting the node, minimum number of data points allowed in a leaf node, bootstrap
@@ -155,37 +141,7 @@ evaluate(model, xTest, yTest)
 # modelRandom.fit(xTrain, yTrain)
 
 # print(modelRandom.best_params_)
-
 #the best parameters are 1600 estimators, 5 samples split, min samples leaf 2, auto max features, max depth None, bootstrap True.
-#run the original 5 fold CV with these settings
-model = RandomForestRegressor(n_estimators=1000, min_samples_split=10, min_samples_leaf=1, max_features='auto', max_depth=None, bootstrap=True)
-folds = KFold(n_splits=5, shuffle=True)
-scores = []
-data = finalDF.drop(['DipoleMoment'], axis=1).values
-target = finalDF.DipoleMoment.values
-print('\nScore:\n')
-for trainIndex, testIndex in folds.split(data):
-    plt.figure()
-    #print(trainIndex, testIndex)
-    xTrain = np.concatenate((data[trainIndex],finalSupplement.drop('DipoleMoment',axis=1).values))
-    xTest = data[testIndex]
-    yTrain = np.concatenate((target[trainIndex],finalSupplement.DipoleMoment.values))
-    #quit()
-    yTest = target[testIndex]
-    #print('\n\n{0}\n\n{1}\n\n{2}\n\n{3}'.format(xTrain,xTest,yTrain,yTest))
-    fittage = model.fit(xTrain, yTrain)
-    SCORE = model.score(xTest, yTest) 
-    print(SCORE)
-    yHat = model.predict(xTest)
-    residualPlot = sb.residplot(yHat, yTest)
-    plt.xlabel('Dipole Moment (D)')
-    plt.ylabel('Error (D)')
-    plt.draw()
-    scores.append(SCORE)
-plt.show()
-meanScore = s.mean(scores)
-print('Model score is: {0}\n'.format(meanScore))
-
 
 #now that the train test is known, train on the the entire dataset so that it can be used for predictions
 modelSettings = model.fit(data,target)
@@ -195,7 +151,7 @@ modelSettings = model.fit(data,target)
 
 #allow input of new predictions
 prediction = True
-print('Enter a smiles string for a new molecule.\nInorganic or large molecules (over 10 atoms) may not result in accurate predictions.\nThere are some limitations on what the interpreter can handle,\nso you may get a rejection for a valid smile.\nSee the RDkit documentation for more details.\n')
+print('\n\nEnter a smiles string for a new molecule.\nInorganic or large molecules (over 10 atoms) may not result in accurate predictions.\nThere are some limitations on what the interpreter can handle,\nso you may get a rejection for a valid smile.\nSee the RDkit documentation for more details.\n')
 while prediction == True:
     repeat = True
     newSmile = input('\nEnter a smiles string for a new molecule.\n')
