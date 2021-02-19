@@ -162,7 +162,7 @@ while prediction == True:
         fingerprint = np.array(list(fingerprint.ToBitString()))
         #calculate a dipole moment for smile
         newSmileDipole = model.predict(fingerprint.reshape(1,-1))
-        print('\nPredicted dipole moment for {0} is: {1:.3f}\n'.format(newSmile, float(newSmileDipole[0])))
+        print('\nPredicted dipole moment for {0} is: {1:.3f} D\n'.format(newSmile, float(newSmileDipole[0])))
     except:
         print('Smile input error, try again.\n')
         repeat = False
