@@ -13,6 +13,8 @@ from sklearn.model_selection import RandomizedSearchCV
 from sklearn import metrics
 import scipy as sci
 
+#options
+pd.set_option('display.max_rows', 500)
 
 #read the data files, verify types, drop the structure column as it will not be used in the analysis here.
 df = pd.read_csv('./organicMolecules.csv')
@@ -54,12 +56,15 @@ for smile in supplementalSmiles:
     supplementalFingerprintList.append(fingerprint)
 supplementalFingerprintArray = np.array(supplementalFingerprintList)
 supplementalFingerprintArray = supplementalFingerprintArray.astype(np.float).astype(int).astype(str)
+#print(supplementalFingerprintArray)
 
 #convert back to part of the data frame, adding 1024 columns, then combine the dataframes, in the order morgan fingerprints, dipole moment. This removes the smiles string column; it is no longer needed
 dfFingerprints = pd.DataFrame(fingerprintArray)
 supplementalFingerprintDF = pd.DataFrame(supplementalFingerprintArray)
 finalDF = pd.concat([dfFingerprints, df['DipoleMoment']], axis=1)
 finalSupplement = pd.concat([supplementalFingerprintDF, dfSupplement['DipoleMoment']], axis=1)
+fullDataSet = pd.concat([finalDF, finalSupplement], axis=0, ignore_index = True)
+#print(fullDataSet.tail(300))
 
 #summary statistics on the dipole moments
 dipoleMoments = df['DipoleMoment'].to_numpy('object')
@@ -82,12 +87,18 @@ plt.show()
 #split data into train and test
 model = RandomForestRegressor(n_estimators=1600, min_samples_split=5, min_samples_leaf=2, max_features='auto', max_depth=None, bootstrap=True)
 folds = KFold(n_splits=5, shuffle=True)
+
 scores = []
 mae = []
 mse = []
 mape = []
 data = finalDF.drop(['DipoleMoment'], axis=1).values
 target = finalDF.DipoleMoment.values
+fullData = fullDataSet.drop(['DipoleMoment'], axis=1)
+fullTarget = fullDataSet.DipoleMoment.values
+
+x = np.linspace(0, 4.1)
+y = x
 print('\nScore:\n')
 for trainIndex, testIndex in folds.split(data):
     plt.figure()
@@ -103,11 +114,19 @@ for trainIndex, testIndex in folds.split(data):
     mae.append(metrics.mean_absolute_error(yTest, yHat))
     mse.append(metrics.mean_squared_error(yTest, yHat))
     #mape.append(metrics.mean_absolute_percentage_error(yTest, yHat))
-    plt.scatter(yTest, yHat-yTest)
-    plt.plot([0,4],[0,0], 'k--')
+    #RESIDUAL PLOTS
+    #plt.scatter(yTest, yHat-yTest)
+    #plt.plot([0,4],[0,0], 'k--')
     #residualPlot = sb.residplot(yTest, yHat)
+    #plt.xlabel('Dipole Moment (D)')
+    #plt.ylabel('Error (D)')
+    #plt.show()
+    #PARITY PLOTS
+    plt.scatter(yTest, yHat)
+    plt.plot(x, y, 'k--')
     plt.xlabel('Dipole Moment (D)')
-    plt.ylabel('Error (D)')
+    plt.ylabel('Predicted Dipole Moment (D)')
+    plt.axis([-0.1,4,-0.1,4])
     plt.draw()
     scores.append(SCORE)
 plt.show()
@@ -144,7 +163,7 @@ print('MSE: {0:.3f}'.format(s.mean(mse)))
 #the best parameters are 1600 estimators, 5 samples split, min samples leaf 2, auto max features, max depth None, bootstrap True.
 
 #now that the train test is known, train on the the entire dataset so that it can be used for predictions
-modelSettings = model.fit(data,target)
+modelSettings = model.fit(fullData, fullTarget)
 #print(modelSettings)
 #Save the model with pickle or json? Add deployment later
 #filename = 'dipoleMomentModel.sav'
